@@ -1,9 +1,9 @@
-name: Extract EDU1.zip
+name: Extract EDU(1).zip
 
 on:
   push:
     paths:
-      - 'EDU1.zip'
+      - 'EDU(1).zip'
 
 jobs:
   unzip_job:
@@ -13,15 +13,15 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Extract EDU1.zip
+    - name: Extract EDU(1).zip
       run: |
-        unzip EDU1.zip -d extracted/
-        rm EDU1.zip
+        unzip "EDU(1).zip" -d extracted/
+        rm "EDU(1).zip"
 
     - name: Commit extracted files
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
         git add extracted/
-        git commit -m "Extracted EDU1.zip contents"
+        git commit -m "Extracted EDU(1).zip contents"
         git push
